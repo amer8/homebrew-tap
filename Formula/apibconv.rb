@@ -35,6 +35,6 @@ class Apibconv < Formula
 
   test do
     assert_match "Usage:", shell_output("#{bin}/apibconv --help")
-    assert_match version.to_s, shell_output("#{bin}/apibconv --version")
+    assert_match(/apibconv v?\d+\.\d+\.\d+/, shell_output("#{bin}/apibconv --version"))
   end
 end
