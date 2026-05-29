@@ -6,8 +6,8 @@ Homebrew formulas and casks for open-source tools by Amer Alimanović.
 
 ```sh
 brew tap amer8/tap
-brew install apibconv
-brew install --cask pulsebar
+brew install amer8/tap/apibconv
+brew install --cask amer8/tap/pulsebar
 ```
 
 ## Available Packages
