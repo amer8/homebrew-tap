@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  brew:
+    runs-on: macos-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Register local tap
+        run: brew tap amer8/tap "$GITHUB_WORKSPACE"
+
+      - name: Check Ruby syntax
+        run: |
+          ruby -c Formula/apibconv.rb
+          ruby -c Casks/pulsebar.rb
+
+      - name: Check Homebrew style
+        run: brew style Formula/apibconv.rb Casks/pulsebar.rb
+
+      - name: Audit packages
+        run: |
+          brew audit --formula --strict amer8/tap/apibconv
+          brew audit --cask --strict amer8/tap/pulsebar
+
+      - name: Fetch release assets
+        run: |
+          brew fetch amer8/tap/apibconv
+          brew fetch --cask amer8/tap/pulsebar
+
+      - name: Install and test formula
+        run: |
+          brew install amer8/tap/apibconv
+          brew test amer8/tap/apibconv
