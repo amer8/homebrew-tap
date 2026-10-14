@@ -1,7 +1,6 @@
 class Apibconv < Formula
   desc "Convert between API Blueprint, OpenAPI, and AsyncAPI specifications"
   homepage "https://github.com/amer8/apibconv"
-  version "0.9.0"
   license "MIT"
   # The archive architecture suffix was previously inferred as version 64.
   version_scheme 1
@@ -32,6 +31,9 @@ class Apibconv < Formula
       sha256 "4c73d1b13ab0518314d9ba29e1a747bbb475bf1c24a67aaa91b81da508a435f4"
     end
   end
+
+  # Older Homebrew versions mistake the architecture suffix for the version.
+  version "0.9.0" if Version.detect(stable.url).to_s != "0.9.0"
 
   def install
     bin.install "apibconv"
