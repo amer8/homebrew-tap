@@ -1,7 +1,6 @@
 class Apibconv < Formula
   desc "Convert between API Blueprint, OpenAPI, and AsyncAPI specifications"
   homepage "https://github.com/amer8/apibconv"
-  version "0.8.0"
   license "MIT"
 
   livecheck do
