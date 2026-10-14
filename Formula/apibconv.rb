@@ -2,6 +2,8 @@ class Apibconv < Formula
   desc "Convert between API Blueprint, OpenAPI, and AsyncAPI specifications"
   homepage "https://github.com/amer8/apibconv"
   license "MIT"
+  # The archive architecture suffix was previously inferred as version 64.
+  version_scheme 1
 
   livecheck do
     url :stable
@@ -9,24 +11,29 @@ class Apibconv < Formula
   end
 
   on_macos do
+    depends_on macos: :ventura
+
     if Hardware::CPU.arm?
-      url "https://github.com/amer8/apibconv/releases/download/v0.8.0/apibconv_0.8.0_Darwin_arm64.tar.gz"
-      sha256 "0d128b4bb48af6cb4558aeddc9fbd6e32048c2e8be1347fe42b009e231a881fd"
+      url "https://github.com/amer8/apibconv/releases/download/v0.9.0/apibconv_0.9.0_Darwin_arm64.tar.gz"
+      sha256 "b52cf61be800fb668389c636484aaf457c617a27c221c3f3d274296cfd4901ca"
     else
-      url "https://github.com/amer8/apibconv/releases/download/v0.8.0/apibconv_0.8.0_Darwin_x86_64.tar.gz"
-      sha256 "8cad35d17ac53fc4151d08fa4809eab05e8f75cabfe47699862d73507ac294df"
+      url "https://github.com/amer8/apibconv/releases/download/v0.9.0/apibconv_0.9.0_Darwin_x86_64.tar.gz"
+      sha256 "982e6143e6773e3d4aeb3414a97f17b801133ecba3b55f05491d7b1e6b1426a6"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/amer8/apibconv/releases/download/v0.8.0/apibconv_0.8.0_Linux_arm64.tar.gz"
-      sha256 "69145ebbcfb10de69123f5e24a2b76a8a875bfea31f11f9fb3f94c8b2f283db1"
+      url "https://github.com/amer8/apibconv/releases/download/v0.9.0/apibconv_0.9.0_Linux_arm64.tar.gz"
+      sha256 "12f3af9c7645f7fda483c73934f86361702b424ac16b29e2f6a094f7c31a9f4f"
     else
-      url "https://github.com/amer8/apibconv/releases/download/v0.8.0/apibconv_0.8.0_Linux_x86_64.tar.gz"
-      sha256 "634c11d5c62b197b5435d3778a54282d14a251ec7340d410d2d9ebb45473bb3e"
+      url "https://github.com/amer8/apibconv/releases/download/v0.9.0/apibconv_0.9.0_Linux_x86_64.tar.gz"
+      sha256 "4c73d1b13ab0518314d9ba29e1a747bbb475bf1c24a67aaa91b81da508a435f4"
     end
   end
+
+  # Older Homebrew versions mistake the architecture suffix for the version.
+  version "0.9.0" if Version.detect(stable.url).to_s != "0.9.0"
 
   def install
     bin.install "apibconv"
@@ -34,6 +41,6 @@ class Apibconv < Formula
 
   test do
     assert_match "Usage:", shell_output("#{bin}/apibconv --help")
-    assert_match(/apibconv v?\d+\.\d+\.\d+/, shell_output("#{bin}/apibconv --version"))
+    assert_equal "apibconv v#{version}\n", shell_output("#{bin}/apibconv --version")
   end
 end
