@@ -1,7 +1,10 @@
 class Apibconv < Formula
   desc "Convert between API Blueprint, OpenAPI, and AsyncAPI specifications"
   homepage "https://github.com/amer8/apibconv"
+  version "0.9.0"
   license "MIT"
+  # The archive architecture suffix was previously inferred as version 64.
+  version_scheme 1
 
   livecheck do
     url :stable
