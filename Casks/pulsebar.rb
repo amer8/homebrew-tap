@@ -27,4 +27,3 @@ cask "pulsebar" do
     "~/Library/Saved Application State/dev.pulsebar.PulseBar.savedState",
   ]
 end
-
