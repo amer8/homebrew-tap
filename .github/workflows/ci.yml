@@ -18,6 +18,9 @@ jobs:
       - name: Register local tap
         run: brew tap amer8/tap "$GITHUB_WORKSPACE"
 
+      - name: Trust local tap
+        run: brew trust --tap amer8/tap
+
       - name: Check Ruby syntax
         run: |
           ruby -c Formula/apibconv.rb

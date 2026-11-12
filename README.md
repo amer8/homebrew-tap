@@ -12,7 +12,7 @@ brew install --cask amer8/tap/pulsebar
 
 ## Available Packages
 
-- `apibconv`: Convert between API Blueprint, OpenAPI, and AsyncAPI specifications.
+- `apibconv`: Migrate API Blueprint and OpenAPI specifications to OpenAPI 3.1.
 - `pulsebar`: macOS menu bar monitor for NVIDIA DGX Spark telemetry.
 
 ## Links

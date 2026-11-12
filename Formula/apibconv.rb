@@ -1,5 +1,5 @@
 class Apibconv < Formula
-  desc "Convert between API Blueprint, OpenAPI, and AsyncAPI specifications"
+  desc "Migrate API Blueprint and OpenAPI specifications to OpenAPI 3.1"
   homepage "https://github.com/amer8/apibconv"
   license "MIT"
   # Recover from archive names previously inferred as version 64 or 86.64.
@@ -14,30 +14,30 @@ class Apibconv < Formula
     depends_on macos: :ventura
 
     on_arm do
-      url "https://github.com/amer8/apibconv/releases/download/v0.9.2/apibconv_0.9.2_Darwin_arm64.tar.gz"
-      sha256 "dc6a7ca72539077899670d3518599ce8136e76d1d653fbb063e454acc27dcac1"
+      url "https://github.com/amer8/apibconv/releases/download/v0.10.0/apibconv_0.10.0_Darwin_arm64.tar.gz"
+      sha256 "d0acc94bac4f2f24bea129c0d6f81fd0a81026369eaca5799d4476eee94793d8"
     end
 
     on_intel do
-      url "https://github.com/amer8/apibconv/releases/download/v0.9.2/apibconv_0.9.2_Darwin_x86_64.tar.gz"
-      sha256 "b9b05033f7f13801db76137ca256d5bcb2ba60c61f42b828184627f3b1e73c48"
+      url "https://github.com/amer8/apibconv/releases/download/v0.10.0/apibconv_0.10.0_Darwin_x86_64.tar.gz"
+      sha256 "adc1325dd4fc1189f17e1b7291be72116861f2014843c99da978155d26fbf4eb"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/amer8/apibconv/releases/download/v0.9.2/apibconv_0.9.2_Linux_arm64.tar.gz"
-      sha256 "986c917509ab1c175dd9f7667fcbed8eb630a1c8909eba15cc898abbd621e726"
+      url "https://github.com/amer8/apibconv/releases/download/v0.10.0/apibconv_0.10.0_Linux_arm64.tar.gz"
+      sha256 "cf7b3e01dd013d24706e568523c5b8fc716c5182966d4fb8af932568262a467d"
     end
 
     on_intel do
-      url "https://github.com/amer8/apibconv/releases/download/v0.9.2/apibconv_0.9.2_Linux_x86_64.tar.gz"
-      sha256 "726845c1559ce30190e5887761e89d045230b24ddb7c698473ae5f6b97e0e9e4"
+      url "https://github.com/amer8/apibconv/releases/download/v0.10.0/apibconv_0.10.0_Linux_x86_64.tar.gz"
+      sha256 "a024797b25f1a0b52867a848453dfd51342b4d620e33b497cea5af6c04737d37"
     end
   end
 
   # Older Homebrew versions mistake the architecture suffix for the version.
-  version "0.9.2" if Version.detect(stable.url).to_s != "0.9.2"
+  version "0.10.0" if Version.detect(stable.url).to_s != "0.10.0"
 
   def install
     bin.install "apibconv"
