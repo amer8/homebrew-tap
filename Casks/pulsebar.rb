@@ -1,6 +1,6 @@
 cask "pulsebar" do
-  version "0.2.2"
-  sha256 "1ec54daaec64df08f3017a380cd3731b8f0dc93b67966617be2b99c20ecbdd7a"
+  version "0.2.3"
+  sha256 "b053972976978813b894dfe141950efd40067bcbbd7677a336839c565e13ec4e"
 
   url "https://github.com/amer8/pulsebar/releases/download/v#{version}/PulseBar-#{version}.dmg"
   name "PulseBar"
